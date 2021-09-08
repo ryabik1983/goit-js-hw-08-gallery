@@ -63,3 +63,48 @@ const galleryItems = [
         description: 'Lighthouse Coast Sea',
     },
 ];
+
+const galleryList = document.querySelector('.js-gallery');
+// Вешаем слушателя события на список
+galleryList.addEventListener('click', onGalleryListClick)
+function onGalleryListClick(evt) {
+    // Фильтр цели клика
+    const isGalleryImageEl = evt.target.classList.contains('gallery__image');
+    if (!isGalleryImageEl) {
+        return;
+    }
+    console.log(evt.target.dataset.source);
+    // Вешаем слушателя события на модальное окно
+    const modal = document.querySelector('.js-lightbox');
+    console.log(modal);
+    modal.classList.add('is-open');
+};
+const galleryMarkup = createGalleryCardsMarkup(galleryItems);
+// Вешаем созданную динамическ разметку на существующий єлемент
+galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
+// Функция рендеринга разметки 
+function createGalleryCardsMarkup(items) {
+    return items
+        .map(({ preview, original, description }) => {
+            return `
+    
+    <li class="gallery__item">
+        <a
+          class="gallery__link"
+          href="${original}"
+        >
+          <img
+            class="gallery__image"
+            src="${preview}"
+            data-source="${original}"
+            alt="${description}"
+          />
+        </a>
+      </li>
+    `;
+        }
+        )
+        .join('');
+}
+
+
