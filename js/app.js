@@ -65,20 +65,7 @@ const galleryItems = [
 ];
 
 const galleryList = document.querySelector('.js-gallery');
-// Вешаем слушателя события на список
-galleryList.addEventListener('click', onGalleryListClick)
-function onGalleryListClick(evt) {
-    // Фильтр цели клика
-    const isGalleryImageEl = evt.target.classList.contains('gallery__image');
-    if (!isGalleryImageEl) {
-        return;
-    }
-    console.log(evt.target.dataset.source);
-    // Вешаем слушателя события на модальное окно
-    const modal = document.querySelector('.js-lightbox');
-    console.log(modal);
-    modal.classList.add('is-open');
-};
+
 const galleryMarkup = createGalleryCardsMarkup(galleryItems);
 // Вешаем созданную динамическ разметку на существующий єлемент
 galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
@@ -106,5 +93,22 @@ function createGalleryCardsMarkup(items) {
         )
         .join('');
 }
+
+// Вешаем слушателя события на список
+galleryList.addEventListener('click', onGalleryListClick)
+function onGalleryListClick(evt) {
+    // Фильтр цели клика
+    const isGalleryImageEl = evt.target.classList.contains('gallery__image');
+    if (!isGalleryImageEl) {
+        return;
+    }
+    console.log('Открываем модальное окно');
+
+    // console.log(evt.target.dataset.source);
+    // Вешаем слушателя события на модальное окно
+    const modal = document.querySelector('.js-lightbox');
+    console.log(modal);    
+    modal.classList.add('is-open');
+};
 
 
