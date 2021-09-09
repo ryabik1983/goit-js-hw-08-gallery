@@ -102,13 +102,31 @@ function onGalleryListClick(evt) {
     if (!isGalleryImageEl) {
         return;
     }
+    evt.preventDefault();
     console.log('Открываем модальное окно');
 
     // console.log(evt.target.dataset.source);
+    
     // Вешаем слушателя события на модальное окно
     const modal = document.querySelector('.js-lightbox');
     console.log(modal);    
     modal.classList.add('is-open');
-};
+    const lightboxImage = document.querySelector('.lightbox__image');
+    console.log(lightboxImage.src = evt.target.dataset.source);
+    console.log(lightboxImage.alt = evt.target.alt);
+}
+// закрытие модального окна
+const modalClose = document.querySelector('[data-action="close-lightbox"]');
+console.log(modalClose);
+modalClose.addEventListener('click', onModalCloseClick);
+function onModalCloseClick (evt){
+    const modal = document.querySelector('.js-lightbox');
+    console.log(modal);        
+    modal.classList.remove('is-open');
+    console.log(modal);
+}
+
+
+
 
 
