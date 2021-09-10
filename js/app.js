@@ -64,11 +64,18 @@ const galleryItems = [
     },
 ];
 
-const galleryList = document.querySelector('.js-gallery');
+const refs = {
+    galleryList: document.querySelector('.js-gallery'),
+    modal: document.querySelector('.js-lightbox'),
+    lightboxImage: document.querySelector('.lightbox__image'),
+    modalCloseBtn: document.querySelector('[data-action="close-lightbox"]'),
+    modalCloseOverlay: document.querySelector('.lightbox__overlay'),
+
+}
 
 const galleryMarkup = createGalleryCardsMarkup(galleryItems);
 // Вешаем созданную динамическ разметку на существующий єлемент
-galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
+refs.galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
 // Функция рендеринга разметки 
 function createGalleryCardsMarkup(items) {
     return items
@@ -95,7 +102,7 @@ function createGalleryCardsMarkup(items) {
 }
 
 // Вешаем слушателя события на список
-galleryList.addEventListener('click', onGalleryListClick)
+refs.galleryList.addEventListener('click', onGalleryListClick)
 function onGalleryListClick(evt) {
     // Фильтр цели клика
     const isGalleryImageEl = evt.target.classList.contains('gallery__image');
@@ -103,30 +110,43 @@ function onGalleryListClick(evt) {
         return;
     }
     evt.preventDefault();
-    console.log('Открываем модальное окно');
+    // console.log('Открываем модальное окно');
 
     // console.log(evt.target.dataset.source);
-    
+
     // Вешаем слушателя события на модальное окно
-    const modal = document.querySelector('.js-lightbox');
-    console.log(modal);    
-    modal.classList.add('is-open');
-    const lightboxImage = document.querySelector('.lightbox__image');
-    console.log(lightboxImage.src = evt.target.dataset.source);
-    console.log(lightboxImage.alt = evt.target.alt);
+    refs.modal.classList.add('is-open');
+    refs.lightboxImage.src = evt.target.dataset.source;
+    refs.lightboxImage.alt = evt.target.alt;
+    // let galleryItemsIndex = galleryItems.map((elem) => {
+
+    // })
+    //     .indexOf(evt.target.dataset);
+    // console.log(galleryItemsIndex);
+
 }
-// закрытие модального окна
-const modalClose = document.querySelector('[data-action="close-lightbox"]');
-console.log(modalClose);
-modalClose.addEventListener('click', onModalCloseClick);
-function onModalCloseClick (evt){
-    const modal = document.querySelector('.js-lightbox');
-    console.log(modal);        
-    modal.classList.remove('is-open');
-    console.log(modal);
+// закрытие модального окна кнопкой
+refs.modalCloseOverlay.addEventListener('click', modalClose);
+refs.modalCloseBtn.addEventListener('click', modalClose);
+function modalClose(evt) {
+    refs.modal.classList.remove('is-open');
+    refs.lightboxImage.src = "";
+    refs.lightboxImage.alt = "";
+    // console.log(lightboxImage.alt);
 }
+window.onkeydown = function (event) {
+    if (event.keyCode == 27) {
+        modalClose();
+    }
+};
+// закрытие модального окна overlay
+// refs.modalCloseOverlay.addEventListener('click', onOverlayClick);
+// function onOverlayClick(evt) {
+//     refs.modal.classList.remove('is-open');
+//     refs.lightboxImage.src = "";
+//     refs.lightboxImage.alt = "";
+// };
+// let galleryItemsIndex = galleryItems.map((elem) => {
 
-
-
-
-
+// })
+//     .indexOf(evt.target.dataset);
