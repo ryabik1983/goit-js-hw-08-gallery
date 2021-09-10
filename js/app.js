@@ -150,3 +150,9 @@ window.onkeydown = function (event) {
 
 // })
 //     .indexOf(evt.target.dataset);
+// const newGallery = galleryItems.map((elem) => {
+//     return
+//     [];
+// });
+
+// console.log(newGallery);
