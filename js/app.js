@@ -134,11 +134,15 @@ function modalClose(evt) {
     refs.lightboxImage.alt = "";
     // console.log(lightboxImage.alt);
 }
-window.onkeydown = function (event) {
-    if (event.keyCode == 27) {
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
         modalClose();
     }
-};
+});
+// window.addEventListener('keydown', (e) => {
+//     // const condition
+//     console.log(e.key);
+// })
 // закрытие модального окна overlay
 // refs.modalCloseOverlay.addEventListener('click', onOverlayClick);
 // function onOverlayClick(evt) {
