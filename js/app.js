@@ -110,21 +110,18 @@ function onGalleryListClick(evt) {
         return;
     }
     evt.preventDefault();
-    // console.log('Открываем модальное окно');
-
-    // console.log(evt.target.dataset.source);
 
     // Вешаем слушателя события на модальное окно
     refs.modal.classList.add('is-open');
     refs.lightboxImage.src = evt.target.dataset.source;
     refs.lightboxImage.alt = evt.target.alt;
-    // let galleryItemsIndex = galleryItems.map((elem) => {
-
-    // })
-    //     .indexOf(evt.target.dataset);
-    // console.log(galleryItemsIndex);
 
 }
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        modalClose();
+    }
+});
 // закрытие модального окна кнопкой
 refs.modalCloseOverlay.addEventListener('click', modalClose);
 refs.modalCloseBtn.addEventListener('click', modalClose);
@@ -132,31 +129,5 @@ function modalClose(evt) {
     refs.modal.classList.remove('is-open');
     refs.lightboxImage.src = "";
     refs.lightboxImage.alt = "";
-    // console.log(lightboxImage.alt);
+
 }
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        modalClose();
-    }
-});
-// window.addEventListener('keydown', (e) => {
-//     // const condition
-//     console.log(e.key);
-// })
-// закрытие модального окна overlay
-// refs.modalCloseOverlay.addEventListener('click', onOverlayClick);
-// function onOverlayClick(evt) {
-//     refs.modal.classList.remove('is-open');
-//     refs.lightboxImage.src = "";
-//     refs.lightboxImage.alt = "";
-// };
-// let galleryItemsIndex = galleryItems.map((elem) => {
-
-// })
-//     .indexOf(evt.target.dataset);
-// const newGallery = galleryItems.map((elem) => {
-//     return
-//     [];
-// });
-
-// console.log(newGallery);
