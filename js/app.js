@@ -115,13 +115,14 @@ function onGalleryListClick(evt) {
     refs.modal.classList.add('is-open');
     refs.lightboxImage.src = evt.target.dataset.source;
     refs.lightboxImage.alt = evt.target.alt;
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modalClose();
+        }
+    });
 
 }
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        modalClose();
-    }
-});
+
 // закрытие модального окна кнопкой
 refs.modalCloseOverlay.addEventListener('click', modalClose);
 refs.modalCloseBtn.addEventListener('click', modalClose);
@@ -129,5 +130,15 @@ function modalClose(evt) {
     refs.modal.classList.remove('is-open');
     refs.lightboxImage.src = "";
     refs.lightboxImage.alt = "";
-
+    window.removeEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modalClose();
+        }
+    });
 }
+// if(!refs.modal.classList.contains]('is-open')
+
+// ){
+    
+
+// }
