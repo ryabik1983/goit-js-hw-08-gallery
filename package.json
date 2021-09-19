@@ -6,7 +6,10 @@
   "dependencies": {
     "parcel-bundler": "^1.12.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cssnano": "^5.0.8",
+    "postcss": "^8.3.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html",
