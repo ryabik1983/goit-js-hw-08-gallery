@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "cssnano": "^5.0.8",
@@ -12,6 +13,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html",
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },

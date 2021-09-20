@@ -64,6 +64,7 @@ const galleryItems = [
     },
 ];
 
+// import refs  from './js/createMarkup';
 const refs = {
     galleryList: document.querySelector('.js-gallery'),
     modal: document.querySelector('.js-lightbox'),
@@ -73,11 +74,11 @@ const refs = {
 
 }
 
+// import galleryMarkup from './js/createMarkup';
 const galleryMarkup = createGalleryCardsMarkup(galleryItems);
-// Вешаем созданную динамическ разметку на существующий єлемент
-refs.galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
 // Функция рендеринга разметки 
-function createGalleryCardsMarkup(items) {
+
+function createGalleryCardsMarkup (items) {
     return items
         .map(({ preview, original, description }) => {
             return `
@@ -101,6 +102,8 @@ function createGalleryCardsMarkup(items) {
         .join('');
 }
 
+// Вешаем созданную динамическ разметку на существующий єлемент
+refs.galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
 // Вешаем слушателя события на список
 refs.galleryList.addEventListener('click', onGalleryListClick)
 function onGalleryListClick(evt) {
@@ -143,3 +146,24 @@ function modalClose(evt) {
 
 // }
 // console.log('Test');
+// import qwe from './js/validate-password';
+
+// console.log(qwe);
+
+// import allService from './js/api-service';
+
+// console.log(allService);
+// import {fetchAllUsers,
+//     x as value,
+//     y as name} from './js/api-service';
+// console.log(fetchAllUsers);
+// console.log(value);
+// console.log(name);
+import * as apiService from './js/api-service';
+
+console.log(apiService);
+import { addUser } from './js/api-service';
+addUser('mango');
+
+
+
