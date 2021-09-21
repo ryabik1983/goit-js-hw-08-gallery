@@ -117,7 +117,68 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/shortid/lib/random/random-from-seed.js":[function(require,module,exports) {
+})({"js/galleryElem.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = [{
+  preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg',
+  description: 'Hokkaido Flower'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
+  description: 'Container Haulage Freight'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
+  description: 'Aerial Beach View'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg',
+  description: 'Flower Blooms'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg',
+  description: 'Alpine Mountains'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg',
+  description: 'Mountain Lake Sailing'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
+  description: 'Alpine Spring Meadows'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
+  description: 'Nature Landscape'
+}, {
+  preview: 'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg',
+  original: 'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
+  description: 'Lighthouse Coast Sea'
+}];
+exports.default = _default;
+},{}],"js/createMarkup.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createGalleryCardsMarkup;
+
+function createGalleryCardsMarkup(items) {
+  return items.map(function (_ref) {
+    var preview = _ref.preview,
+        original = _ref.original,
+        description = _ref.description;
+    return "\n    \n    <li class=\"gallery__item\">\n        <a\n          class=\"gallery__link\"\n          href=\"".concat(original, "\"\n        >\n          <img\n            class=\"gallery__image\"\n            src=\"").concat(preview, "\"\n            data-source=\"").concat(original, "\"\n            alt=\"").concat(description, "\"\n          />\n        </a>\n      </li>\n    ");
+  }).join('');
+}
+},{}],"../node_modules/shortid/lib/random/random-from-seed.js":[function(require,module,exports) {
 'use strict';
 
 // Found this seed-based random generator somewhere
@@ -522,69 +583,28 @@ exports.y = y;
 },{"shortid":"../node_modules/shortid/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
+var _galleryElem = _interopRequireDefault(require("./js/galleryElem"));
+
+var _createMarkup = _interopRequireDefault(require("./js/createMarkup"));
+
 var apiService = _interopRequireWildcard(require("./js/api-service"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var galleryItems = [{
-  preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg',
-  description: 'Hokkaido Flower'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
-  description: 'Container Haulage Freight'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
-  description: 'Aerial Beach View'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg',
-  description: 'Flower Blooms'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg',
-  description: 'Alpine Mountains'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg',
-  description: 'Mountain Lake Sailing'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
-  description: 'Alpine Spring Meadows'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
-  description: 'Nature Landscape'
-}, {
-  preview: 'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg',
-  original: 'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
-  description: 'Lighthouse Coast Sea'
-}]; // import refs  from './js/createMarkup';
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import refs  from './js/createMarkup';
 var refs = {
   galleryList: document.querySelector('.js-gallery'),
   modal: document.querySelector('.js-lightbox'),
   lightboxImage: document.querySelector('.lightbox__image'),
   modalCloseBtn: document.querySelector('[data-action="close-lightbox"]'),
   modalCloseOverlay: document.querySelector('.lightbox__overlay')
-}; // import galleryMarkup from './js/createMarkup';
-
-var galleryMarkup = createGalleryCardsMarkup(galleryItems); // Функция рендеринга разметки 
-
-function createGalleryCardsMarkup(items) {
-  return items.map(function (_ref) {
-    var preview = _ref.preview,
-        original = _ref.original,
-        description = _ref.description;
-    return "\n    \n    <li class=\"gallery__item\">\n        <a\n          class=\"gallery__link\"\n          href=\"".concat(original, "\"\n        >\n          <img\n            class=\"gallery__image\"\n            src=\"").concat(preview, "\"\n            data-source=\"").concat(original, "\"\n            alt=\"").concat(description, "\"\n          />\n        </a>\n      </li>\n    ");
-  }).join('');
-} // Вешаем созданную динамическ разметку на существующий єлемент
-
+};
+var galleryMarkup = (0, _createMarkup.default)(_galleryElem.default); // Функция рендеринга разметки 
+// Вешаем созданную динамическ разметку на существующий єлемент
 
 refs.galleryList.insertAdjacentHTML('beforeend', galleryMarkup); // Вешаем слушателя события на список
 
@@ -641,7 +661,7 @@ function modalClose(evt) {
 
 console.log(apiService);
 (0, apiService.addUser)('mango');
-},{"./js/api-service":"js/api-service.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./js/galleryElem":"js/galleryElem.js","./js/createMarkup":"js/createMarkup.js","./js/api-service":"js/api-service.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -669,7 +689,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62633" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58256" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
