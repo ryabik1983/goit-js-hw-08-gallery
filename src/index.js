@@ -192,4 +192,19 @@ console.log(dog); // {name: "Mango", age: 3, isHappy: true}
 
 console.log(sessionStorage);
 
+const user = {
+    name: 'Sandra',
+    age: 31,
+    skills: ['HTML', 'Css'],
+}
+console.log('user', user)
+
+// console.log(JSON)
+ const jsonUser = JSON.stringify(user);
+ console.log(jsonUser);
+
+ const backJsonUser = JS    ON.parse(jsonUser);
+console.log(backJsonUser);
+
+
   
