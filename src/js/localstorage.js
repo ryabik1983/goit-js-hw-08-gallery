@@ -1,2 +1,2 @@
-console.log(localStorage);
-localStorage.setItem('ma-data', 'qweqweqwe');
+// console.log(localStorage);
+// localStorage.setItem('ma-data', 'qweqweqwe');

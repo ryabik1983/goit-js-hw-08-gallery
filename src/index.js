@@ -1,7 +1,7 @@
 // import galleryItems  from './js/galleryElem';
-// import createGalleryCardsMarkup from './js/createMarkup';
+import createGalleryCardsMarkup from './js/createMarkup';
 
-// import refs  from './js/createMarkup';
+import refs  from './js/createMarkup';
 
 const galleryItems = [
     {
@@ -168,43 +168,43 @@ function modalClose(evt) {
 // import { addUser } from './js/api-service';
 // addUser('mango');
 // import "./js/localstorage.js";
-console.log(localStorage);
-localStorage.setItem('my-data', JSON.stringify({
-    "name": "Josh",
-    "weight": 175,
-    "age": 30,
-    "eyecolor": "brown",
-    "isHappy": true,
-    "cars": ["Chevy", "Honda"],
-    "favoriteBook": {
-      "title": "When the Fire Nation Attacked",
-      "author": "Nickelodeon",
-      "released": "02-21-2005"
-    }
-  }));
-  console.log(localStorage.getItem('my-data'));
-  ;
+// console.log(localStorage);
+// localStorage.setItem('my-data', JSON.stringify({
+//     "name": "Josh",
+//     "weight": 175,
+//     "age": 30,
+//     "eyecolor": "brown",
+//     "isHappy": true,
+//     "cars": ["Chevy", "Honda"],
+//     "favoriteBook": {
+//       "title": "When the Fire Nation Attacked",
+//       "author": "Nickelodeon",
+//       "released": "02-21-2005"
+//     }
+//   }));
+//   console.log(localStorage.getItem('my-data'));
+//   ;
 
-  const json = '{"name":"Mango","age":3,"isHappy":true}';
+//   const json = '{"name":"Mango","age":3,"isHappy":true}';
 
-const dog = JSON.parse(json);
-console.log(dog); // {name: "Mango", age: 3, isHappy: true}
+// const dog = JSON.parse(json);
+// console.log(dog); // {name: "Mango", age: 3, isHappy: true}
 
-console.log(sessionStorage);
+// console.log(sessionStorage);
 
-const user = {
-    name: 'Sandra',
-    age: 31,
-    skills: ['HTML', 'Css'],
-}
-console.log('user', user)
+// const user = {
+//     name: 'Sandra',
+//     age: 31,
+//     skills: ['HTML', 'Css'],
+// }
+// console.log('user', user)
 
-// console.log(JSON)
- const jsonUser = JSON.stringify(user);
- console.log(jsonUser);
+// // console.log(JSON)
+//  const jsonUser = JSON.stringify(user);
+//  console.log(jsonUser);
 
- const backJsonUser = JS    ON.parse(jsonUser);
-console.log(backJsonUser);
+//  const backJsonUser = JS    ON.parse(jsonUser);
+// console.log(backJsonUser);
 
 
   
